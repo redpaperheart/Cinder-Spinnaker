@@ -1,5 +1,13 @@
-# Cinder-Spinnaker
+Cinder-Spinnaker
+===================
 Cinder block for integrating [Flir / Point Grey] Spinnaker SDK
+
+### notes/instruct
+- [https://www.flir.com/products/spinnaker-sdk/](Download the Spinnaker SDK)
+- windows only
+- sdk is toolset v140 + x64
+- tested with Blackfly S
+- tested with SDK v???
 
 License
 -------
