@@ -1,5 +1,6 @@
 # Cinder-Spinnaker
 Cinder block for integrating [Flir / Point Grey] Spinnaker SDK
+
 License
 -------
 Copyright (c) 2019, Red Paper Heart, All rights reserved. To contact Red Paper Heart, email hello@redpaperheart.com or tweet @redpaperhearts
