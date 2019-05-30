@@ -9,41 +9,30 @@
 #include "cinder/Surface.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Thread.h"
-//#include "cinder/ConcurrentCircularBuffer.h"
-//#include "cinder/gl/Context.h"
-
-//#include "rph/ConcurrentDeque.h"
-
-using namespace Spinnaker;
-using namespace Spinnaker::GenApi;
-using namespace Spinnaker::GenICam;
-using namespace ci;
-using namespace ci::app;
-using namespace std;
 
 class SpinnakerCapture{
 	public:
 		SpinnakerCapture();
 		~SpinnakerCapture();
+
+		struct CameraOptions{
+			int camIndex = 0;
+			float fps = 55;
+			vec2 resolution = vec2(2048, 1536);
+		};
 			
 		void												setup(int index=0);
 		void												update();
 		int													mCamIndex;
-		//void												loadTextureThreadFn(ci::gl::ContextRef sharedGlContext);
 		void												draw();
 		ci::gl::TextureRef									getCamTexture(){ return mCamTexture; }
-		//ci::SurfaceRef										getCamSurface(){ return mCamSurfaceRef; }
-		//void												saveFramesFromSurfaceRefVector();
-		//void												loadVector();
-
-		//bool												bStartRec = false;
-		//ci::ConcurrentCircularBuffer<ci::gl::TextureRef>*	mTextureBuffer;
 		
-		bool												isFrameAvailable();
+		float												fps = 55; //fps to set camera to max 55
+
 		bool												mNewFrame = false;
 		int													mCaptureCount = 0;
 		double												lastFrame;
-		float												fps=55; //fps to set camera to max 55
+		
 		bool												limitFPS=false;
 		bool												mDebugLogs = false;
 		bool												mUpdateTexture = true;
@@ -51,30 +40,18 @@ class SpinnakerCapture{
 		bool												mGetNextImage = true;
 
 	private:
-		int													AcquireImages( CameraPtr pCam,  INodeMap & nodeMap, INodeMap & nodeMapTLDevice );
-		int													PrintDeviceInfo(INodeMap & nodeMap);
+		int													AcquireImages(Spinnaker::CameraPtr pCam, Spinnaker::GenApi::INodeMap & nodeMap, Spinnaker::GenApi::INodeMap & nodeMapTLDevice );
+		int													PrintDeviceInfo(Spinnaker::GenApi::INodeMap & nodeMap);
+		bool												isFrameAvailable();
 		
-		int													mResX;
-		int													mResY;
-
-		
-		
-		
-		//ci::SurfaceRef										mCamSurfaceRef;
+		//int													mResX;
+		//int													mResY;		
 		ci::gl::TextureRef									mCamTexture;
 
-		/*SystemPtr											mSystem;
-		CameraList											mCamList;
-		CameraPtr											mCam = nullptr;*/
-		//ImagePtr											mConvertedImage;
-		void												convertImage(ImagePtr img);
-
 		bool												mShouldQuit=false;
-		shared_ptr<thread>									mThread;
+		std::shared_ptr<std::thread>								mThread;
 		
 		ci::SurfaceRef										mLatestFrame;
 		void												captureThreadFn();
-
-		//rph::ConcurrentDeque<ci::SurfaceRef>                mSurfaceQueue;
 };
 
