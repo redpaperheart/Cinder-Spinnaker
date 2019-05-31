@@ -28,12 +28,12 @@ class AnotherSpinnakerApp : public App {
 	  float						mFPS; //app fps
 	  bool						mCapturing = false;
 	  params::InterfaceGlRef	mParams;
-	  SpinnakerCaptureRef mSpinnakerCaptureRef;
-	  SpinnakerCapture::CameraOptions cameraOptions;
+	  rph::SpinnakerCaptureRef mSpinnakerCaptureRef;
+	  rph::SpinnakerCapture::CameraOptions cameraOptions;
 };
 
 void AnotherSpinnakerApp::setup() {
-	mSpinnakerCaptureRef = SpinnakerCapture::create();
+	mSpinnakerCaptureRef = rph::SpinnakerCapture::create();
 
 	mFPS = getAverageFps();
 	mParams = params::InterfaceGl::create("App Params", vec2(250, 340) * app::getWindowContentScale());

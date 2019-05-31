@@ -7,9 +7,6 @@
 #include "cinder/Log.h"
 #include "cinder/Surface.h"
 #include "cinder/Thread.h"
-//#include "cinder/ip/Resize.h"
-//#include <iostream>
-//#include <sstream>
 
 /**********************
 Notes
@@ -22,9 +19,12 @@ TODO
 - there's image tearing in the surface frames on horizontal motion
 	- does not seem to be related to vsync
 	- perhaps coming from the mem copy from the image to the surface
+- get the current exposure and gain values from camera if set to auto or 1
+- make sample with multiple cameras
 *********************/
-using SpinnakerCaptureRef = std::shared_ptr<class SpinnakerCapture>;
-class SpinnakerCapture{
+namespace rph {
+	using SpinnakerCaptureRef = std::shared_ptr<class SpinnakerCapture>;
+	class SpinnakerCapture {
 	public:
 		static SpinnakerCaptureRef create() {
 			return std::make_shared<SpinnakerCapture>();
@@ -33,7 +33,7 @@ class SpinnakerCapture{
 		SpinnakerCapture();
 		~SpinnakerCapture();
 
-		struct CameraOptions{
+		struct CameraOptions {
 			CameraOptions() {}
 			//almost always 0 unless you have more than one camera attached
 			int camIndex = 0;
@@ -50,17 +50,17 @@ class SpinnakerCapture{
 			int autoExposureValue = 0;
 			int autoGainValue = 0;
 			int autoWhiteBalanceValue = 1;
-			
+
 			//non auto exposure and gain settings, be sure auto values are set to off
 			int exposureTime = 15000;
 			float gain = 10;
 		};
-			
-		void												setup(CameraOptions options= CameraOptions());
+
+		void												setup(CameraOptions options = CameraOptions());
 		CameraOptions										mOptions;
 		void												update();
 		void												draw();
-		ci::gl::TextureRef									getCamTexture(){ return mCamTexture; }
+		ci::gl::TextureRef									getCamTexture() { return mCamTexture; }
 
 		//start the thread
 		void start();
@@ -82,10 +82,10 @@ class SpinnakerCapture{
 		//is there a new frame from the thread
 		bool										isFrameAvailable();
 		bool										mStarted = false;
-				
+
 		ci::gl::TextureRef							mCamTexture;
 
-		std::atomic<bool>							mShouldQuit=false;
+		std::atomic<bool>							mShouldQuit = false;
 		std::atomic<bool>							mJoinThread = false;
 		std::atomic<bool>							mConnected = false;
 		void										closeThread();
@@ -95,9 +95,11 @@ class SpinnakerCapture{
 
 		//get image from the camera, convert it then copy into a surface
 		int											AcquireImages(Spinnaker::CameraPtr pCam, Spinnaker::GenApi::INodeMap & nodeMap, Spinnaker::GenApi::INodeMap & nodeMapTLDevice);
-		
+
 		//most recent surface from the thread
 		ci::SurfaceRef								mLatestFrame;
 		void										captureThreadFn(SpinnakerCapture::CameraOptions options);
-};
+	};
+}
+//namespace rph
 
