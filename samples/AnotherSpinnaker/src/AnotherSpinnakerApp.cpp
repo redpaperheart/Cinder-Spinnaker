@@ -11,8 +11,6 @@ extern "C" {
 
 #include "SpinnakerCapture.h"
 
-#define CAM_RES_X 2048
-#define CAM_RES_Y 1536
 
 using namespace ci;
 using namespace ci::app;
@@ -24,9 +22,12 @@ class AnotherSpinnakerApp : public App {
 	  void update() override;
 	  void draw() override;
 
-	  params::InterfaceGlRef	mParams;
-	  float					mFPS;
+	  void startCapture();
+	  void stopCapture();
 
+	  float						mFPS; //app fps
+	  bool						mCapturing = false;
+	  params::InterfaceGlRef	mParams;
 	  SpinnakerCapture mSpinnakerCapture;
 };
 
@@ -35,20 +36,35 @@ void AnotherSpinnakerApp::setup() {
 	mParams = params::InterfaceGl::create("App Params", vec2(250, 340) * app::getWindowContentScale());
 	mParams->setOptions("", "refresh=0.5");
 	mParams->addParam("FPS", &mFPS);
-	mParams->addParam("Camera Targ FPS", &mSpinnakerCapture.fps).min(1).max(55);
-	mParams->addParam("Limit FPS", &mSpinnakerCapture.limitFPS);
-	mParams->addParam("Debug Logs", &mSpinnakerCapture.mDebugLogs);
+
+	mParams->addButton("Start Capture", [&]() { startCapture(); });
+	mParams->addButton("Stop Capture", [&]() { stopCapture(); });
+	mParams->addParam("Camera Started", &mCapturing, "", true);
+
 	mParams->addParam("Update Surface", &mSpinnakerCapture.mUpdateSurface);
 	mParams->addParam("Update Texture", &mSpinnakerCapture.mUpdateTexture);
 	mParams->addParam("Camera GetNextImage", &mSpinnakerCapture.mGetNextImage);
 
-
-	mSpinnakerCapture.setup();
+	//create cam options
+	SpinnakerCapture::CameraOptions opts;
+	opts.camIndex = 0;
+	opts.fps = 55;
+	opts.res = vec2(2048, 1536); //camera res for black fly s (not configurable)
+	//setup cam + start thread
+	mSpinnakerCapture.setup(opts);
+	mSpinnakerCapture.start();
 }
 
 void AnotherSpinnakerApp::update() {
 	mFPS = getAverageFps();
+	mCapturing = mSpinnakerCapture.isStarted();
 	mSpinnakerCapture.update();
+}
+void AnotherSpinnakerApp::startCapture() {
+	mSpinnakerCapture.start();
+}
+void AnotherSpinnakerApp::stopCapture() {
+	mSpinnakerCapture.stop();
 }
 
 void AnotherSpinnakerApp::draw() {
