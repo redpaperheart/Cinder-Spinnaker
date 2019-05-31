@@ -16,6 +16,11 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+/*
+A little bit more complex sample and allows you to stop and start capture
+Allows modification of camera properties with params
+*/
+
 class AnotherSpinnakerApp : public App {
   public:
 	  void setup() override;
