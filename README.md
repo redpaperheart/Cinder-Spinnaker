@@ -5,8 +5,8 @@ Cinder block for integrating [Flir / Point Grey] Spinnaker SDK
 ##### Adding this block to Cinder
 This block was built with version 0.9.1, so 0.9.0 and up should work. This block is also only available on Windows since the Spinnaker SDK is Windows only. The current Spinnaker SDK also only contains .dll files for x64 + toolset v140.
 
-* First get a Camera that uses the Spinnaker SDK, this block was built with a [https://www.flir.com/products/blackfly-s-usb3/?model=BFS-U3-31S4C-C](Flir Blackfly S) 3.2MP Color
-* Second download the [https://www.flir.com/products/spinnaker-sdk/](Spinnaker SDK)
+* First get a Camera that uses the Spinnaker SDK, this block was built with a [Flir Blackfly S](https://www.flir.com/products/blackfly-s-usb3/?model=BFS-U3-31S4C-C) 3.2MP Color
+* Second download the [Spinnaker SDK](https://www.flir.com/products/spinnaker-sdk/)
   - This block was built with SDK v 1.20.0.15 but should work with newer versions as well
   - This block is also configured to work with the default Spinnaker SDK install location (C:\Program Files\Point Grey Research\Spinnaker)
   - If you install the SDK at a different path you'll want to update either the cinderblock.xml paths or modify the paths in VS after you create a project 
