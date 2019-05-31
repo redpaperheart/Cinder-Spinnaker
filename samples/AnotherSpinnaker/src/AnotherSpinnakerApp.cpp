@@ -28,11 +28,13 @@ class AnotherSpinnakerApp : public App {
 	  float						mFPS; //app fps
 	  bool						mCapturing = false;
 	  params::InterfaceGlRef	mParams;
-	  SpinnakerCapture mSpinnakerCapture;
+	  SpinnakerCaptureRef mSpinnakerCaptureRef;
 	  SpinnakerCapture::CameraOptions cameraOptions;
 };
 
 void AnotherSpinnakerApp::setup() {
+	mSpinnakerCaptureRef = SpinnakerCapture::create();
+
 	mFPS = getAverageFps();
 	mParams = params::InterfaceGl::create("App Params", vec2(250, 340) * app::getWindowContentScale());
 	mParams->setOptions("", "refresh=0.5");
@@ -42,9 +44,9 @@ void AnotherSpinnakerApp::setup() {
 	mParams->addButton("Stop Capture", [&]() { stopCapture(); });
 	mParams->addParam("Camera Started", &mCapturing, "", true);
 
-	mParams->addParam("Update Surface", &mSpinnakerCapture.mUpdateSurface);
-	mParams->addParam("Update Texture", &mSpinnakerCapture.mUpdateTexture);
-	mParams->addParam("Camera GetNextImage", &mSpinnakerCapture.mGetNextImage);
+	mParams->addParam("Update Surface", &mSpinnakerCaptureRef->mUpdateSurface);
+	mParams->addParam("Update Texture", &mSpinnakerCaptureRef->mUpdateTexture);
+	mParams->addParam("Camera GetNextImage", &mSpinnakerCaptureRef->mGetNextImage);
 
 	mParams->addSeparator();
 	//camera must be stopped then started again to use new options
@@ -63,8 +65,8 @@ void AnotherSpinnakerApp::setup() {
 
 void AnotherSpinnakerApp::update() {
 	mFPS = getAverageFps();
-	mCapturing = mSpinnakerCapture.isStarted();
-	mSpinnakerCapture.update();
+	mCapturing = mSpinnakerCaptureRef->isStarted();
+	mSpinnakerCaptureRef->update();
 }
 void AnotherSpinnakerApp::startCapture() {
 	//create cam options
@@ -83,14 +85,14 @@ void AnotherSpinnakerApp::startCapture() {
 	//opts.gain = 10;
 
 	//setup cam + start thread
-	mSpinnakerCapture.setup(cameraOptions);
-	mSpinnakerCapture.start();
+	mSpinnakerCaptureRef->setup(cameraOptions);
+	mSpinnakerCaptureRef->start();
 	
 
 	//mSpinnakerCapture.start();
 }
 void AnotherSpinnakerApp::stopCapture() {
-	mSpinnakerCapture.stop();
+	mSpinnakerCaptureRef->stop();
 }
 
 void AnotherSpinnakerApp::draw() {
@@ -98,7 +100,7 @@ void AnotherSpinnakerApp::draw() {
 	{
 		gl::ScopedMatrices mat;
 		gl::scale(vec2(0.5f, 0.5f));
-		mSpinnakerCapture.draw();
+		mSpinnakerCaptureRef->draw();
 	}
 
 	mParams->draw();

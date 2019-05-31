@@ -22,9 +22,13 @@ TODO
 	- does not seem to be related to vsync
 	- perhaps coming from the mem copy from the image to the surface
 *********************/
-
+using SpinnakerCaptureRef = std::shared_ptr<class SpinnakerCapture>;
 class SpinnakerCapture{
 	public:
+		static SpinnakerCaptureRef create() {
+			return std::make_shared<SpinnakerCapture>();
+		}
+
 		SpinnakerCapture();
 		~SpinnakerCapture();
 
