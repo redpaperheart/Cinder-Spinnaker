@@ -16,6 +16,7 @@ Notes
 - resizing the surface is not very efficient, even in the thread
 - however if resizing to smaller than half or quarter at a lower fps this may be possible
 - resizing is currently disabled
+- windows only :(
 
 TODO
 - there's image tearing in the surface frames on horizontal motion

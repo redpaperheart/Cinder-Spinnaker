@@ -44,6 +44,7 @@ void AnotherSpinnakerApp::setup() {
 	mParams->addButton("Stop Capture", [&]() { stopCapture(); });
 	mParams->addParam("Camera Started", &mCapturing, "", true);
 
+	//params for testing thread performance, disable new frames and texture update
 	mParams->addParam("Update Surface", &mSpinnakerCaptureRef->mUpdateSurface);
 	mParams->addParam("Update Texture", &mSpinnakerCaptureRef->mUpdateTexture);
 	mParams->addParam("Camera GetNextImage", &mSpinnakerCaptureRef->mGetNextImage);
@@ -69,27 +70,13 @@ void AnotherSpinnakerApp::update() {
 	mSpinnakerCaptureRef->update();
 }
 void AnotherSpinnakerApp::startCapture() {
-	//create cam options
-	//SpinnakerCapture::CameraOptions opts;
-	//opts.camIndex = 0;
-	//opts.fps = 55;
-	//opts.res = vec2(2048, 1536); //camera res for black fly s (not adjustable on blackfly s)
-
-	////see CameraOptions struct for info on auto values enum
-	//opts.autoExposureValue = 0;
-	//opts.autoGainValue = 0;
-	//opts.autoWhiteBalanceValue = 1;
-
-	////non auto exposure and gain settings, be sure auto values are set to off
-	//opts.exposureTime = 15000;
-	//opts.gain = 10;
-
-	//setup cam + start thread
+	/*
+	if you're using a camera other than the blackfly s
+	you may want to change some of the default options
+	- fps and resolution in particular
+	*/
 	mSpinnakerCaptureRef->setup(cameraOptions);
 	mSpinnakerCaptureRef->start();
-	
-
-	//mSpinnakerCapture.start();
 }
 void AnotherSpinnakerApp::stopCapture() {
 	mSpinnakerCaptureRef->stop();
