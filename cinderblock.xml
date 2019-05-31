@@ -6,7 +6,7 @@
   git="git@github.com:redpaperheart/Cinder-Spinnaker"
 	author="Red Paper Heart"
 	summary="Classes for using the Spinnaker SDK"
-  version="0.7"
+  version="0.8"
   url="https://github.com/redpaperheart/Cinder-Spinnaker"
 	git="https://github.com/redpaperheart/Cinder-Spinnaker.git"
 	>

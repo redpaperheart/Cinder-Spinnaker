@@ -1,0 +1,424 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{39AC799B-1FD3-4C9F-9E64-2DD5F223EA27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker">
+      <UniqueIdentifier>{F7B51A19-1C55-45D3-8ADC-7BA4E29AA09A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\src">
+      <UniqueIdentifier>{DEAF466A-1B62-4B9B-B063-A20A954BDCE2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\C:">
+      <UniqueIdentifier>{CB8B20D6-4815-427A-809F-925BACE895C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\C:\Program Files">
+      <UniqueIdentifier>{824572EC-54DC-4B1D-96FD-56047564BFAC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research">
+      <UniqueIdentifier>{8E1BAABA-DBF7-41E0-9D6B-8D10281AB4CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker">
+      <UniqueIdentifier>{504A11ED-9FB7-46F2-989E-1D753F4613FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include">
+      <UniqueIdentifier>{3F55B566-ACCD-424B-9EDE-F2E901875E08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi">
+      <UniqueIdentifier>{1D7B0AD3-22CB-4145-A77F-1DB8EC1F3715}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\SimpleSpinnakerApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SimpleSpinnakerApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\SpinnakerCapture.cpp">
+      <Filter>Blocks\Cinder-Spinnaker\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\src\SpinnakerCapture.h">
+      <Filter>Blocks\Cinder-Spinnaker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\ArrivalEvent.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\AVIRecorder.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\BasePtr.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\Camera.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\CameraBase.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\CameraDefs.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\CameraList.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\CameraPtr.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\ChunkData.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\DeviceEvent.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\Event.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\Exception.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\Image.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\ImageEvent.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\ImagePtr.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\ImageStatistics.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\Interface.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\InterfaceEvent.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\InterfaceList.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\InterfacePtr.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\LoggingEvent.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\LoggingEventData.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\LoggingEventDataPtr.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\RemovalEvent.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\Spinnaker.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinnakerDefs.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinnakerPlatform.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinVideo.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinVideoDefs.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\System.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SystemPtr.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\TransportLayerDefs.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\TransportLayerDevice.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\TransportLayerInterface.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\TransportLayerStream.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\TransportLayerSystem.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Autovector.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Base.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\BooleanNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\CategoryNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ChunkAdapter.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ChunkAdapterDcam.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ChunkAdapterGeneric.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ChunkAdapterGEV.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ChunkAdapterU3V.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ChunkPort.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\CommandNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Compatibility.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Container.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Counter.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EnumClasses.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EnumEntryNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EnumNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EnumNodeT.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EventAdapter.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EventAdapter1394.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EventAdapterGeneric.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EventAdapterGEV.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EventAdapterU3V.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\EventPort.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Filestream.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\FloatNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\FloatRegNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\GCBase.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\GCString.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\GCStringVector.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\GCSynch.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\GCTypes.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\GCUtilities.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IBoolean.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ICategory.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IChunkPort.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ICommand.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IDestroy.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IDeviceInfo.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IEnumEntry.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IEnumeration.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IEnumerationT.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IFloat.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IInteger.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\INode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\INodeMap.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\INodeMapDyn.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IntegerNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IntRegNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IPort.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IPortConstruct.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IPortRecorder.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IRegister.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ISelector.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ISelectorDigit.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IString.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\IValue.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Node.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\NodeCallback.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\NodeCallbackImpl.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\NodeMap.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\NodeMapFactory.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\NodeMapRef.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Persistence.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Pointer.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\PortImpl.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\PortNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\PortRecorder.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\PortReplay.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\PortWriteList.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Reference.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\RegisterNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\RegisterPortImpl.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\SelectorSet.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\SpinnakerGenApi.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\SpinTestCamera.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\StringNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\StringRegNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\StructPort.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Synch.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\Types.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi\ValueNode.h">
+      <Filter>Blocks\Cinder-Spinnaker\C:\Program Files\Point Grey Research\Spinnaker\include\SpinGenApi</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
