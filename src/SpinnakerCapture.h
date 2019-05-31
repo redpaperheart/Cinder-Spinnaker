@@ -3,12 +3,13 @@
 #include "Spinnaker.h"
 #include "SpinGenApi/SpinnakerGenApi.h"
 #include "cinder/app/App.h"
-#include <iostream>
-#include <sstream> 
+#include "cinder/gl/gl.h"
 #include "cinder/Log.h"
 #include "cinder/Surface.h"
-#include "cinder/gl/gl.h"
 #include "cinder/Thread.h"
+#include "cinder/ip/Resize.h"
+//#include <iostream>
+//#include <sstream> 
 
 class SpinnakerCapture{
 	public:
@@ -40,7 +41,7 @@ class SpinnakerCapture{
 			//TODO
 			//boolean +vec2 to resize the incoming data to something?
 			bool resize = false;
-			glm::vec2 resizeRes = glm::vec2(1000, 500);
+			glm::vec2 resizeRes = res;
 		};
 			
 		void												setup(CameraOptions options= CameraOptions());

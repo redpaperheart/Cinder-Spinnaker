@@ -13,19 +13,11 @@ SpinnakerCapture::SpinnakerCapture(){
 
 SpinnakerCapture::~SpinnakerCapture(){
 	stop();
-	//try {
-	//	//clean up the system ref
-	//	ci::app::console() << "mSystem->ReleaseInstance" << std::endl;
-	//	mSystem->ReleaseInstance();
-	//}
-	//catch (Spinnaker::Exception &e) {
-	//	ci::app::console() << "Error: " << e.what() << std::endl;
-	//}
 }
 
 void SpinnakerCapture::setup(CameraOptions options){
 	mOptions = options;
-	mLatestFrame = ci::Surface::create(mOptions.res.x, mOptions.res.y, false, ci::SurfaceChannelOrder::RGBA);
+	mLatestFrame = ci::Surface::create(mOptions.res.x, mOptions.res.y, false, ci::SurfaceChannelOrder::RGB);
 	mCamTexture = ci::gl::Texture::create(mOptions.res.x, mOptions.res.y);
 	
 	//setup the system
@@ -47,7 +39,6 @@ void SpinnakerCapture::start() {
 	mThread = std::shared_ptr<std::thread>(new std::thread(std::bind(&SpinnakerCapture::captureThreadFn, this, mOptions)));
 }
 void SpinnakerCapture::stop() {
-	//cout << endl << "stopping" << endl << endl;
 	if (!mStarted) return; //can't stop; not running
 	//stop the thread
 	mShouldQuit = true;
@@ -59,14 +50,11 @@ void SpinnakerCapture::closeThread() {
 	mJoinThread = false;
 	CI_LOG_I("closeThread");
 	try {
-		//cout << endl << "joining thread" << endl << endl;
-		//CI_LOG_I("joining thread");
-
 		CI_LOG_I("joinable: " << mThread->joinable());
 		mThread->join();
 	}
-	catch (std::runtime_error &ex) {
-		CI_LOG_I("Error: "<< ex.what());
+	catch (...) {
+		//CI_LOG_I("Error: "<< ex.what());
 	}
 }
 void SpinnakerCapture::PrintDeviceInfo(INodeMap & nodeMap) {
@@ -308,12 +296,14 @@ int SpinnakerCapture::AcquireImages(CameraPtr pCam, INodeMap & nodeMap, INodeMap
 			//convert the image to proper format
 			if (mUpdateSurface) {
 				ImagePtr mConvertedImage;
-				mConvertedImage = nextImg->Convert(PixelFormat_RGBa8, NEAREST_NEIGHBOR);
+				//mConvertedImage = nextImg->Convert(PixelFormat_RGBa8, NEAREST_NEIGHBOR);
+				mConvertedImage = nextImg->Convert(PixelFormat_RGB8, NEAREST_NEIGHBOR);
+				//mResizedSurface = ip::resizeCopy( *camSurface, Area( bounds.x1, bounds.y1, bounds.x2, bounds.y2 ), vec2(mResX, mResY ));
 				
 				//TODO resize if enabled
 				//update the surface ref with the new data
 				auto mCamPixelData = mConvertedImage->GetData();
-				memcpy(mLatestFrame->getData(), mCamPixelData, pCam->Width.GetValue() * pCam->Height.GetValue() * 4);
+				memcpy(mLatestFrame->getData(), mCamPixelData, pCam->Width.GetValue() * pCam->Height.GetValue() * 3);
 				mNewFrame = true;
 			}
 		}

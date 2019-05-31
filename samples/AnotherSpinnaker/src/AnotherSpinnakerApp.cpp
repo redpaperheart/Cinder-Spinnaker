@@ -50,6 +50,9 @@ void AnotherSpinnakerApp::setup() {
 	opts.camIndex = 0;
 	opts.fps = 55;
 	opts.res = vec2(2048, 1536); //camera res for black fly s (not configurable)
+
+	opts.resize = true;
+	opts.resizeRes = vec2(1024, 768); //half size
 	//setup cam + start thread
 	mSpinnakerCapture.setup(opts);
 	mSpinnakerCapture.start();
@@ -81,6 +84,7 @@ void AnotherSpinnakerApp::draw() {
 void prepareSettings(App::Settings* settings) {
 	settings->setWindowSize(1500, 900);
 	settings->setMultiTouchEnabled(false);
+	settings->setHighDensityDisplayEnabled(false);
 }
 
 
