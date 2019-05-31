@@ -7,9 +7,21 @@
 #include "cinder/Log.h"
 #include "cinder/Surface.h"
 #include "cinder/Thread.h"
-#include "cinder/ip/Resize.h"
+//#include "cinder/ip/Resize.h"
 //#include <iostream>
-//#include <sstream> 
+//#include <sstream>
+
+/**********************
+Notes
+- resizing the surface is not very efficient, even in the thread
+- however if resizing to smaller than half or quarter at a lower fps this may be possible
+- resizing is currently disabled
+
+TODO
+- there's image tearing in the surface frames on horizontal motion
+	- does not seem to be related to vsync
+	- perhaps coming from the mem copy from the image to the surface
+*********************/
 
 class SpinnakerCapture{
 	public:
@@ -37,11 +49,6 @@ class SpinnakerCapture{
 			//non auto exposure and gain settings, be sure auto values are set to off
 			int exposureTime = 15000;
 			float gain = 10;
-			
-			//TODO
-			//boolean +vec2 to resize the incoming data to something?
-			bool resize = false;
-			glm::vec2 resizeRes = res;
 		};
 			
 		void												setup(CameraOptions options= CameraOptions());
@@ -57,6 +64,7 @@ class SpinnakerCapture{
 		bool isStarted() {
 			return mStarted;
 		}
+		//TODO add getters for size
 
 		bool												mNewFrame = false;
 		bool												mDebugLogs = false;

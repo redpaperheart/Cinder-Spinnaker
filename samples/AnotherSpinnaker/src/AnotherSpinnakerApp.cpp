@@ -29,6 +29,7 @@ class AnotherSpinnakerApp : public App {
 	  bool						mCapturing = false;
 	  params::InterfaceGlRef	mParams;
 	  SpinnakerCapture mSpinnakerCapture;
+	  SpinnakerCapture::CameraOptions cameraOptions;
 };
 
 void AnotherSpinnakerApp::setup() {
@@ -45,17 +46,19 @@ void AnotherSpinnakerApp::setup() {
 	mParams->addParam("Update Texture", &mSpinnakerCapture.mUpdateTexture);
 	mParams->addParam("Camera GetNextImage", &mSpinnakerCapture.mGetNextImage);
 
-	//create cam options
-	SpinnakerCapture::CameraOptions opts;
-	opts.camIndex = 0;
-	opts.fps = 55;
-	opts.res = vec2(2048, 1536); //camera res for black fly s (not configurable)
+	mParams->addSeparator();
+	//camera must be stopped then started again to use new options
+	mParams->addParam<int>("List Index", &cameraOptions.camIndex, false).group("Cam Options");
+	mParams->addParam<float>("Cam FPS", &cameraOptions.fps, false).group("Cam Options");
+	mParams->addParam<float>("Res Width", &cameraOptions.res.x, true).group("Cam Options");
+	mParams->addParam<float>("Res Height", &cameraOptions.res.y, true).group("Cam Options");
+	mParams->addParam<int>("Auto Exposure", &cameraOptions.autoExposureValue, false).group("Cam Options");
+	mParams->addParam<int>("Auto Gain", &cameraOptions.autoGainValue, false).group("Cam Options");
+	mParams->addParam<int>("Auto White", &cameraOptions.autoWhiteBalanceValue, false).group("Cam Options");
+	mParams->addParam<int>("Override Exposure", &cameraOptions.exposureTime, false).group("Cam Options");
+	mParams->addParam<float>("Override Gain", &cameraOptions.gain, false).group("Cam Options");
 
-	opts.resize = true;
-	opts.resizeRes = vec2(1024, 768); //half size
-	//setup cam + start thread
-	mSpinnakerCapture.setup(opts);
-	mSpinnakerCapture.start();
+	startCapture();
 }
 
 void AnotherSpinnakerApp::update() {
@@ -64,7 +67,27 @@ void AnotherSpinnakerApp::update() {
 	mSpinnakerCapture.update();
 }
 void AnotherSpinnakerApp::startCapture() {
+	//create cam options
+	//SpinnakerCapture::CameraOptions opts;
+	//opts.camIndex = 0;
+	//opts.fps = 55;
+	//opts.res = vec2(2048, 1536); //camera res for black fly s (not adjustable on blackfly s)
+
+	////see CameraOptions struct for info on auto values enum
+	//opts.autoExposureValue = 0;
+	//opts.autoGainValue = 0;
+	//opts.autoWhiteBalanceValue = 1;
+
+	////non auto exposure and gain settings, be sure auto values are set to off
+	//opts.exposureTime = 15000;
+	//opts.gain = 10;
+
+	//setup cam + start thread
+	mSpinnakerCapture.setup(cameraOptions);
 	mSpinnakerCapture.start();
+	
+
+	//mSpinnakerCapture.start();
 }
 void AnotherSpinnakerApp::stopCapture() {
 	mSpinnakerCapture.stop();
