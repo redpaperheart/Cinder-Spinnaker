@@ -16,14 +16,16 @@ This block was built with version 0.9.1, so 0.9.0 and up should work. This block
 There are 2 different sample projects included with the block. SimpleSpinnaker is a very simple barebones example and AnotherSpinnaker shows starting/stopping the capture as well as changing camera options (framerate, auto exposure)
 
 ##### Tips and Gotchas
+- If the SDK is installed in 
 - This was only tested with a Blackfly S which is color, has a high frame rate, and high resolution that is not configurable. Setting the frame rate to unsupported frame rates or resolutions for your camera may cause the app to crash
 - Most of the Spinnaker capturing happens in another thread and then a Surface is updated with memCopy back to the main thread. If that thread gets slowed down you may start to see the buffer get backed up and the video feed will start to lag. I currently don't have a solution for this except to just not slow down that thread. You can also try slowing down your camera frame rate.
 
 ##### TODOS
 - test framerate and resolution values before attempting to set them
 - investigate image tearing: maybe caused from the thread memCopy to surface
-- adding a capture manager class to reconnect cameras when disconnected + connnected
+- adding a capture manager class to reconnect cameras when disconnected + connected
 - add functionality to query the cameras current exposure and gain levels
+- fix the gross filter paths for the Spinnaker SDK directories, adds a filter folder for each dir ```C:\Program Files\Point Grey Research\Spinnaker```
 
 License
 -------
