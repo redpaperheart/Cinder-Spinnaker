@@ -2,12 +2,25 @@ Cinder-Spinnaker
 ===================
 Cinder block for integrating [Flir / Point Grey] Spinnaker SDK
 
-### notes/instruct
-- [https://www.flir.com/products/spinnaker-sdk/](Download the Spinnaker SDK)
-- windows only
-- sdk is toolset v140 + x64
-- tested with Blackfly S
-- tested with SDK v???
+##### Adding this block to Cinder
+This block was built with version 0.9.1, so 0.9.0 and up should work. This block is also only available on Windows since the Spinnaker SDK is Windows only. The current Spinnaker SDK also only contains .dll files for x64 + toolset v140.
+
+* First get a Camera that uses the Spinnaker SDK, this block was built with a [https://www.flir.com/products/blackfly-s-usb3/?model=BFS-U3-31S4C-C](Flir Blackfly S) 3.2MP Color
+* Second download the [https://www.flir.com/products/spinnaker-sdk/](Spinnaker SDK)
+  - This block was built with SDK v 1.20.0.15 but should work with newer versions as well
+  - This block is also configured to work with the default Spinnaker SDK install location (C:\Program Files\Point Grey Research\Spinnaker)
+  - If you install the SDK at a different path you'll want to update either the cinderblock.xml paths or modify the paths in VS after you create a project 
+* Add this block to your Cinder/blocks folder
+* Use TinderBox and create a new Cinder project
+
+##### Tips and Gotchas
+- This was only tested with a Blackfly S which is color, has a high frame rate, and high resolution that is not configurable. Setting the frame rate to unsupported frame rates or resolutions for your camera may cause the app to crash
+- Most of the Spinnaker capturing happens in another thread and then a Surface is updated with memCopy back to the main thread. If that thread gets slowed down you may start to see the buffer get backed up and the video feed will start to lag. I don't have a solution for this except to just not slow down that thread. You can also try slowing down your camera frame rate.
+
+##### TODOS
+- test framerate and resolution values before attempting to set them
+- investigate image tearing: maybe caused from the thread memCopy to surface
+- adding a capture manager class to reconnect cameras when unplugged/replugged
 
 License
 -------
