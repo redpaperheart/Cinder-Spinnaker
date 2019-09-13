@@ -27,15 +27,15 @@ namespace rph {
 		if (mJoinThread) {
 			closeThread();
 		}
-		if (mUpdateTexture && isFrameAvailable()) {
+		if (mStarted && mUpdateTexture && isFrameAvailable()) {
 			mCamTexture->update(*mLatestFrame);
 			mNewFrame = false;
 			lastFrameTime = getElapsedSeconds();
-			if (mDebugLogs) ci::app::console() << "new frame ------------------" << std::endl;
+			//if (mDebugLogs) ci::app::console() << "new frame ------------------" << std::endl;
 		}
-		else {
-			if (mDebugLogs) ci::app::console() << "waiting on a new camera frame" << std::endl;
-		}
+		//else {
+		//	if (mDebugLogs) ci::app::console() << "waiting on a new camera frame" << std::endl;
+		//}
 	}
 	void SpinnakerCapture::draw() {
 		//draw the texture
@@ -45,19 +45,26 @@ namespace rph {
 	void SpinnakerCapture::applySettings(SpinnakerSettingsRef settings) {
 		//try to update the exposure
 		if (mCam) {
-			//set camera from options
-			mCam->ExposureAuto.SetValue(Spinnaker::ExposureAutoEnums(settings->mAutoExposureMode));
-			if (settings->mAutoExposureMode == 0) mCam->ExposureTime.SetValue(settings->mExposureTime);
+			try {
+				mCam->ExposureAuto.SetValue(Spinnaker::ExposureAutoEnums(settings->mAutoExposureMode));
+				if (settings->mAutoExposureMode == 0) mCam->ExposureTime.SetValue(settings->mExposureTime);
 
-			mCam->GainAuto.SetValue(Spinnaker::GainAutoEnums(settings->mAutoGainMode));
-			if (settings->mAutoGainMode == 0) mCam->Gain.SetValue(settings->mGain);
+				mCam->GainAuto.SetValue(Spinnaker::GainAutoEnums(settings->mAutoGainMode));
+				if (settings->mAutoGainMode == 0) mCam->Gain.SetValue(settings->mGain);
 
-			mCam->BalanceWhiteAuto.SetValue(Spinnaker::BalanceWhiteAutoEnums(settings->mAutoWhiteMode)); //can also be set to once
-
-			mCam->AcquisitionFrameRateEnable.SetValue(true);
-			mCam->AcquisitionFrameRate.SetValue(settings->mFPS);
+				mCam->BalanceWhiteAuto.SetValue(Spinnaker::BalanceWhiteAutoEnums(settings->mAutoWhiteMode)); //can also be set to once
+			}
+			catch (Spinnaker::Exception& e) {
+				ci::app::console() << "Error: " << e.what() << std::endl;
+			}
+			try {
+				mCam->AcquisitionFrameRateEnable.SetValue(true);
+				mCam->AcquisitionFrameRate.SetValue(settings->mFPS);
+			}
+			catch (Spinnaker::Exception& e) {
+				ci::app::console() << "Error: " << e.what() << std::endl;
+			}
 		}
-		
 	}
 	void SpinnakerCapture::start() {
 		if (mStarted) return; //already running
@@ -65,16 +72,16 @@ namespace rph {
 		mStarted = true;
 		mShouldQuit = false;
 		//camera setup all happens in the thread
-		mConnected = true;
+		//mConnected = true;
 		mThread = std::shared_ptr<std::thread>(new std::thread(std::bind(&SpinnakerCapture::captureThreadFn, this, mSettings)));
 	}
 	void SpinnakerCapture::stop() {
 		if (!mStarted) return; //can't stop; not running
+		mStarted = false;
 		//stop the thread
 		mShouldQuit = true;
-		closeThread();
-	
-		mStarted = false;
+		//mSettings->mDeviceIndex = -1;
+		//closeThread();
 	}
 	void SpinnakerCapture::closeThread() {
 		mJoinThread = false;
@@ -86,6 +93,7 @@ namespace rph {
 		catch (...) {
 			//CI_LOG_I("Error: "<< ex.what());
 		}
+		mSettings->mDeviceIndex = -1;
 	}
 	void SpinnakerCapture::PrintDeviceInfo(INodeMap & nodeMap) {
 		cout << endl << "*** DEVICE INFORMATION ***" << endl;
@@ -194,13 +202,17 @@ namespace rph {
 		Spinnaker::SystemPtr tSystem = Spinnaker::System::GetInstance();
 		CameraList mCamList;
 		//CI_LOG_I("finding cam");
-		ci::app::console() << "finding cam" << std::endl;
+		//ci::app::console() << "finding cam" << std::endl;
+		if (mCam != NULL) {
+			ci::app::console() << "cam already exists!" << std::endl;
+		}
 		try {
 			//CI_LOG_I("0");
 			mCamList = tSystem->GetCameras();
 			//CI_LOG_I("A");
 			if (settings->mDeviceIndex >= 0) {
 				//CI_LOG_I("B");
+				//ci::app::console() << "by index" << std::endl;
 				if (mCamList.GetSize() > 0 || mCamList.GetSize() - 1 >= settings->mDeviceIndex) {
 					mCam = mCamList.GetByIndex(settings->mDeviceIndex);
 					settings->mDeviceSerial = mCam->DeviceSerialNumber.GetValue(true);
@@ -211,6 +223,7 @@ namespace rph {
 				}
 			}
 			else {
+				//ci::app::console() << "by serial" << std::endl;
 				//setup by serial, useful when using mutiple cams
 				//CI_LOG_I("cam from serial:" << settings->mDeviceSerial);
 				try {
@@ -246,23 +259,41 @@ namespace rph {
 			//catch (Spinnaker::Exception& e) {
 			//	ci::app::console() << "Error: " << e.what() << std::endl;
 			//}
-			ci::app::console() << "End Capture Thread" << std::endl;
-			mConnected = false;
+			ci::app::console() << "CAPTURE THREAD STOPPED" << std::endl;
+			//mConnected = false;
 			mStarted = false;
 			mJoinThread = true;
+			mSettings->mDeviceIndex = -1;
 			//CI_LOG_I("closed");
+			mCam = NULL;
 			return;
 		}
+		//check if camera is still aquiring
+		//try{
+		//	ci::app::console() << "mCam->AcquisitionAbort()" << std::endl;
+		//	mCam->EndAcquisition();
+		//	//mCam->AcquisitionAbort();
 
+		//}
+		//	catch (Spinnaker::Exception& e) {
+		//	ci::app::console() << "Error: " << e.what() << std::endl;
+		//}
+
+		ci::app::console() << "validated, init" << std::endl;
 		//setup the camera
 		mCam->Init();
 
+		//ci::app::console() << "setupCamera" << std::endl;
 		//reduce the buffer of the camera, messy so pulled into it's own method
 		setupCamera(mCam);
 		
+		//ci::app::console() << "applySettings" << std::endl;
 		//settings like fps and autoexposure
+		//applySettings(settings);
+		
 		applySettings(settings);
 		
+		//ci::app::console() << "BeginAcquisition" << std::endl;
 		//start capturing
 		mCam->AcquisitionMode.SetValue(AcquisitionMode_Continuous);
 		mCam->BeginAcquisition();
@@ -289,6 +320,8 @@ namespace rph {
 		try {
 			ci::app::console() << "mCam->EndAcquisition()" << std::endl;
 			mCam->EndAcquisition();
+			//mCam->AcquisitionAbort();
+			
 		}
 		catch (Spinnaker::Exception &e) {
 			ci::app::console() << "Error: " << e.what() << std::endl;
@@ -296,16 +329,26 @@ namespace rph {
 		try {
 			ci::app::console() << "mCam->DeInit();" << std::endl;
 			mCam->DeInit();
-			mCam = nullptr;
 		}
 		catch (Spinnaker::Exception &e) {
 			ci::app::console() << "Error: " << e.what() << std::endl;
 		}
 
-		mConnected = false;
+		mCam = NULL;
+		//release the system ref
+		//try {
+		//	ci::app::console() << "tSystem->ReleaseInstance();" << std::endl;
+		//	tSystem->ReleaseInstance();
+		//}
+		//catch (Spinnaker::Exception& e) {
+		//	ci::app::console() << "Error: " << e.what() << std::endl;
+		//}
+
+		//mConnected = false;
 		mStarted = false;
 		mJoinThread = true;
-		
+		mSettings->mDeviceIndex = -1;
+		mCam = NULL;
 		ci::app::console() << "CAPTURE THREAD STOPPED" << std::endl;
 	}
 	int SpinnakerCapture::AcquireImages(CameraPtr pCam, INodeMap & nodeMap, INodeMap & nodeMapTLDevice) {

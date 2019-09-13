@@ -83,11 +83,11 @@ namespace rph {
 		bool												mUpdateTexture = true;
 		bool												mUpdateSurface = true;
 		bool												mGetNextImage = true;
-
+		double lastFrameTime = 0; //time in seconds that the last frame was grabbed
 	private:
 		void										PrintDeviceInfo(Spinnaker::GenApi::INodeMap & nodeMap);
 		//is there a new frame from the thread
-		double lastFrameTime = 0; //time in seconds that the last frame was grabbed
+		
 		bool										isFrameAvailable();
 		bool										mStarted = false;
 
@@ -96,7 +96,7 @@ namespace rph {
 		Spinnaker::CameraPtr mCam;
 		std::atomic<bool>							mShouldQuit = false;
 		std::atomic<bool>							mJoinThread = false;
-		std::atomic<bool>							mConnected = false;
+		//std::atomic<bool>							mConnected = false;
 		void										closeThread();
 		std::shared_ptr<std::thread>				mThread;
 		//do some additional settings for the camera (reduce buffer to 1 frame)
