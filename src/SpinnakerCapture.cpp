@@ -14,6 +14,8 @@ namespace rph {
 
 	SpinnakerCapture::~SpinnakerCapture(){
 		stop();
+		//releaseSystem();
+		closeThread();
 	}
 
 	void SpinnakerCapture::setup(SpinnakerSettingsRef settings){
@@ -70,6 +72,7 @@ namespace rph {
 		if (mStarted) return; //already running
 		CI_LOG_I("----------------starting");
 		mStarted = true;
+		mThreadClosed = false;
 		mShouldQuit = false;
 		//camera setup all happens in the thread
 		//mConnected = true;
@@ -77,6 +80,7 @@ namespace rph {
 	}
 	void SpinnakerCapture::stop() {
 		if (!mStarted) return; //can't stop; not running
+		ci::app::console() << "stop" << std::endl;
 		mStarted = false;
 		//stop the thread
 		mShouldQuit = true;
@@ -84,14 +88,15 @@ namespace rph {
 		//closeThread();
 	}
 	void SpinnakerCapture::closeThread() {
-		mJoinThread = false;
 		CI_LOG_I("closeThread");
+		mJoinThread = false;
 		try {
 			CI_LOG_I("joinable: " << mThread->joinable());
 			mThread->join();
+			mThreadClosed = true;
 		}
 		catch (...) {
-			//CI_LOG_I("Error: "<< ex.what());
+			CI_LOG_I("exception in close thread:");
 		}
 		mSettings->mDeviceIndex = -1;
 	}
@@ -199,7 +204,14 @@ namespace rph {
 		ci::ThreadSetup threadSetup; // instantiate this if you're talking to Cinder from a secondary thread
 		ci::app::console() << "CAPTURE THREAD STARTED" << std::endl;
 	
-		Spinnaker::SystemPtr tSystem = Spinnaker::System::GetInstance();
+		//Spinnaker::SystemPtr tSystem = SpinnakerCapture::GetSystemInstance();
+		Spinnaker::SystemPtr tSystem; // = Spinnaker::System::GetInstance();
+		try {
+			tSystem = Spinnaker::System::GetInstance();
+		}
+		catch (Spinnaker::Exception& e) {
+			ci::app::console() << "Error: " << e.what() << std::endl;
+		}
 		CameraList mCamList;
 		//CI_LOG_I("finding cam");
 		//ci::app::console() << "finding cam" << std::endl;
@@ -336,14 +348,16 @@ namespace rph {
 
 		mCam = NULL;
 		//release the system ref
-		//try {
-		//	ci::app::console() << "tSystem->ReleaseInstance();" << std::endl;
-		//	tSystem->ReleaseInstance();
+		//if (mReleaseSystem) {
+			//try {
+			//	ci::app::console() << "tSystem->ReleaseInstance();" << std::endl;
+			//	tSystem->ReleaseInstance();
+			//}
+			//catch (Spinnaker::Exception& e) {
+			//	ci::app::console() << "Error: " << e.what() << std::endl;
+			//}
 		//}
-		//catch (Spinnaker::Exception& e) {
-		//	ci::app::console() << "Error: " << e.what() << std::endl;
-		//}
-
+		
 		//mConnected = false;
 		mStarted = false;
 		mJoinThread = true;

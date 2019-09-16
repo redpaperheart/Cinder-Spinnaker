@@ -33,6 +33,15 @@ namespace rph {
 
 		SpinnakerCapture();
 		~SpinnakerCapture();
+		void releaseSystem() {
+			try {
+				Spinnaker::SystemPtr tSystem = Spinnaker::System::GetInstance();
+				tSystem->ReleaseInstance();
+			}
+			catch (Spinnaker::Exception& e) {
+				ci::app::console() << "System Error: " << e.what() << std::endl;
+			}
+		}
 
 //		struct CameraOptions {
 //			CameraOptions() {}
@@ -83,6 +92,7 @@ namespace rph {
 		bool												mUpdateTexture = true;
 		bool												mUpdateSurface = true;
 		bool												mGetNextImage = true;
+		bool												mThreadClosed = true;
 		double lastFrameTime = 0; //time in seconds that the last frame was grabbed
 	private:
 		void										PrintDeviceInfo(Spinnaker::GenApi::INodeMap & nodeMap);
@@ -96,6 +106,7 @@ namespace rph {
 		Spinnaker::CameraPtr mCam;
 		std::atomic<bool>							mShouldQuit = false;
 		std::atomic<bool>							mJoinThread = false;
+		
 		//std::atomic<bool>							mConnected = false;
 		void										closeThread();
 		std::shared_ptr<std::thread>				mThread;
