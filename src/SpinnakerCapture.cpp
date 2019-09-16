@@ -14,7 +14,6 @@ namespace rph {
 
 	SpinnakerCapture::~SpinnakerCapture(){
 		stop();
-		//releaseSystem();
 		closeThread();
 	}
 
@@ -72,7 +71,7 @@ namespace rph {
 		if (mStarted) return; //already running
 		CI_LOG_I("----------------starting");
 		mStarted = true;
-		mThreadClosed = false;
+		//mThreadClosed = false;
 		mShouldQuit = false;
 		//camera setup all happens in the thread
 		//mConnected = true;
@@ -93,7 +92,7 @@ namespace rph {
 		try {
 			CI_LOG_I("joinable: " << mThread->joinable());
 			mThread->join();
-			mThreadClosed = true;
+			//mThreadClosed = true;
 		}
 		catch (...) {
 			CI_LOG_I("exception in close thread:");

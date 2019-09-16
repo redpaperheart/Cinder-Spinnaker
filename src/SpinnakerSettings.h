@@ -27,7 +27,7 @@ namespace rph {
 			return std::make_shared<SpinnakerSettings>(_serial, _fps, _resolution, _autoExposureMode, _autoGainMode, _autoWhiteBalanceMode, _exposureTime, _gain, _deviceIndex);
 		}
 		
-		SpinnakerSettings();
+		SpinnakerSettings() {};
 		SpinnakerSettings(
 			std::string _serial,
 			int _fps,
@@ -39,16 +39,13 @@ namespace rph {
 			float _gain,
 			int _deviceIndex
 			)
-			//:mDeviceSerial(_serial), downOffset(_downOffset), down(_down), toWorldTranslate(_toWorldTranslate), toWorldRotation(_toWorldRotation), wiredSyncMode(_wiredSyncMode),
-			//mDeviceIndex(_deviceIndex)
 			: mDeviceSerial(_serial), mFPS(_fps), mResolution(_resolution),
 			mAutoExposureMode(_autoExposureMode), mAutoGainMode(_autoGainMode), mAutoWhiteMode(_autoWhiteBalanceMode),
 			mExposureTime(_exposureTime), mGain(_gain)
 		{
-			//renderColor = ci::Color(ci::Rand::randFloat(1.0f), ci::Rand::randFloat(1.0f), ci::Rand::randFloat(1.0f));
-			//CI_LOG_I("setting start down:" << down);
+
 		}
-		~SpinnakerSettings();
+		~SpinnakerSettings() {};
 
 		int						mDeviceIndex = -1; //index on the system for the device, if it remains -1 that means this setting has no device
 		std::string				mDeviceSerial = "none";
@@ -67,8 +64,6 @@ namespace rph {
 		//non auto exposure and gain settings, be sure auto values are set to off
 		int mExposureTime = 15000;
 		float mGain = 2;
-		
-		//void save(ma::Dictionary& info) const;
 		 
 	private:
 
